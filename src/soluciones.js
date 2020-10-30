@@ -124,10 +124,20 @@
 
 /*
 
--- 1º Consulta con el operador $and --
+-- 1º Consulta con el operador $and explicito --
 // Hemos realizado una consulta para que nos muestre los items que sean paper y tengan un estado "D"
 
 > db.inventory.find( { $and: [ { item: "paper"}, { status:  "D"  } ] } )
+{ "_id" : ObjectId("5f9966f9c842cadb27dfe4c0"), "item" : "paper", "qty" : 100, "size" : { "h" : 8.5, "w" : 11, "uom" : "in" }, "status" : "D" }
+
+*/
+
+/*
+
+-- 1.1º Consulta con el operador $and implícito --
+// Hemos realizado una consulta para que nos muestre los items que sean paper y tengan un estado "D"
+
+> db.inventory.find( {item:"paper", status:{$eq:"D"}})
 { "_id" : ObjectId("5f9966f9c842cadb27dfe4c0"), "item" : "paper", "qty" : 100, "size" : { "h" : 8.5, "w" : 11, "uom" : "in" }, "status" : "D" }
 
 */
